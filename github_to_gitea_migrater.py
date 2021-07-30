@@ -98,13 +98,7 @@ def migrateGithubToGitea(repository, giteaUser):
     if response_migrate.status_code == 409:
         print(f'[WARNING]: {repo_name} already exists on {GITEA_URL}/{GITEA_REPOSITORY_OWNER}, moving on ... ⚠')
         pass
-    if response_migrate.status_code == 401:
-        print(f'[Status: {response_migrate.status_code}]',prettifyJson(response_migrate.content))
-        exit()
-    if response_migrate.status_code == 403:
-        print(f'[Status: {response_migrate.status_code}]',prettifyJson(response_migrate.content))
-        exit()
-    if response_migrate.status_code == 422:
+    if response_migrate.status_code == 401 or response_migrate.status_code == 403 or response_migrate.status_code == 422:
         print(f'[Status: {response_migrate.status_code}]',prettifyJson(response_migrate.content))
         exit()
 
