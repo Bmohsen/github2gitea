@@ -7,7 +7,7 @@ import time
 import json
  
 load_dotenv()
- 
+  
 GITEA_URL = os.getenv('GITEA_URL')
 GITEA_USERNAME = os.getenv('GITEA_USERNAME')
 GITEA_PASSWORD = os.getenv('GITEA_PASSWORD')
